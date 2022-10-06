@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.title %> </title>
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1><%= movie.title %> </h1>    
+    <br>
+    <p>RATING: <%= movie.rating %> </p>
+    <p>AWARDS: <%= movie.awards %> </p>
+    <p>LENGTH: <%= movie.length + ' min'%> </p>
+    <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <br>
+    <% if (movie.genre) { %>
+        <h4>Genero : <a href="/genres/detail/<%= movie.genre.id %> "><%= movie.genre.name %></a></h4>
+    <% }else{ %>
+        <h4>La pelicula no tiene genero</h4>
+    <% } %>
+    
+    <br>
+    <h4>Actores</h4>
+    <% if (movie.actors.length) { %>
+        <ul style="margin-bottom:50px ;">
+            <% movie.actors.forEach(actor => { %>
+                <li ><a href="/actors/detail/<%= actor.id %>"><%= actor.firts_name %> <%= actor.last_name %></a></li>
+             
+            <% }) %>
+    <% }else{ %>
+        <p>La pelicula no tiene actores registrados</p>
+    <% } %>
+    
+    </ul>
+    <section style="height:50px;">
+        <a class="botonAgregar"   href="/movies/edit/<%= movie.id %>">Editar</a>
+        <a class="botonVolver" style="background-color: red;" href="/movies/delete/<%= movie.id %>">Eliminar</a>
+    </section>
+
+</body>
+</html>
+<!-- <a class="botonAgregar" href="/movies/detail<%= movie.id %>">Actualizar</a> -->
