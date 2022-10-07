@@ -19,7 +19,7 @@
     <p>RELEASE DATE: <%= movie.release_date %> </p>
     <br>
     <% if (movie.genre) { %>
-        <h4>Genero : <a href="/genres/detail/<%= movie.genre.id %> "><%= movie.genre.name %></a></h4>
+        <h4>Genero : <a href="/genres/detail/<%= movie.genre_id %> "><%= movie.genre.name %></a></h4>
     <% }else{ %>
         <h4>La pelicula no tiene genero</h4>
     <% } %>
@@ -37,11 +37,10 @@
     <% } %>
     
     </ul>
-    <section style="height:50px;">
+    <section style="margin-top: 50px;">
         <a class="botonAgregar"   href="/movies/edit/<%= movie.id %>">Editar</a>
         <a class="botonVolver" style="background-color: red;" href="/movies/delete/<%= movie.id %>">Eliminar</a>
     </section>
 
 </body>
 </html>
-<!-- <a class="botonAgregar" href="/movies/detail<%= movie.id %>">Actualizar</a> -->
